@@ -1,0 +1,123 @@
+.content {
+  padding: 20px;
+  flex: 1;
+  transition: padding-left 0.3s ease;
+}
+
+.sidebar-open ~ .content {
+  padding-left: 270px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: linear-gradient(to right, #76c7c0, #34a0a4);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: #222;
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: white;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress {
+  height: 1rem;
+  background: #e0e0e0;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress > div {
+  height: 100%;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+canvas#lineChart {
+  width: 100% !important;
+  max-height: 400px;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  canvas#lineChart {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  canvas#lineChart {
+    max-height: 250px;
+  }
+}

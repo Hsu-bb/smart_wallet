@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 95%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: #1e1e1e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  justify-content: flex-start;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sidebar.collapsed .logo,
+.sidebar.collapsed .label,
+.sidebar.collapsed .logout-btn span {
+  display: none;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem 0;
+  gap: 0.3rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.sidebar-nav a i {
+  font-size: 1.3rem;
+}
+
+.sidebar-nav a.active,
+.sidebar-nav a:hover {
+  background-color: #333;
+}
+
+.logout-btn {
+  background: red;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 12px;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+.sidebar.collapsed .logout-btn {
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  margin: 1rem auto;
+  justify-content: center;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 70px;
+  height: 100vh;
+  transition: filter 0.3s ease;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 2000;
+}
+
+.sidebar.collapsed a[data-tooltip] {
+  position: relative;
+}
+
+.sidebar.collapsed a[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  white-space: nowrap;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  margin-left: 10px;
+  z-index: 100;
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar.collapsed {
+    width: 70px;
+  }
+
+  .sidebar.collapsed .sidebar-nav a {
+    padding: 0.6rem;
+    justify-content: center;
+  }
+
+  .sidebar.collapsed .sidebar-nav a i {
+    font-size: 1.3rem;
+  }
+
+  .sidebar.collapsed .logout-btn {
+    width: 45px;
+    height: 45px;
+    margin: 0.8rem auto;
+  }
+
+  .sidebar-header {
+    justify-content: flex-start;
+  }
+}
